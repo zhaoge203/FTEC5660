@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">FTEC5660 Homework 1 receipt chain design</title>
+  <desc id="desc">Receipt images are encoded, independently audited by two vision prompts, optionally checked by a third ledger audit, then aggregated with Decimal arithmetic into the two required answers.</desc>
+  <defs>
+    <style>
+      .box { rx: 16; ry: 16; stroke-width: 2.5; }
+      .title { font: 700 24px system-ui, sans-serif; fill: #172554; }
+      .body { font: 500 17px system-ui, sans-serif; fill: #1e293b; }
+      .small { font: 500 15px system-ui, sans-serif; fill: #334155; }
+      .edge { stroke: #475569; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 8 8; }
+      .label { font: 700 16px system-ui, sans-serif; fill: #475569; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="700" fill="#f8fafc"/>
+  <text x="600" y="48" text-anchor="middle" class="title">HW1 Receipt Chain: independent audits + deterministic aggregation</text>
+
+  <rect x="50" y="105" width="240" height="100" class="box" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="170" y="145" text-anchor="middle" class="body">Receipt image folder</text>
+  <text x="170" y="174" text-anchor="middle" class="small">7 public / unseen private images</text>
+
+  <rect x="360" y="105" width="240" height="100" class="box" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="480" y="145" text-anchor="middle" class="body">Encode each image</text>
+  <text x="480" y="174" text-anchor="middle" class="small">base64 data URL</text>
+
+  <rect x="680" y="85" width="220" height="140" class="box" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="790" y="125" text-anchor="middle" class="body">Auditor A</text>
+  <text x="790" y="154" text-anchor="middle" class="small">Negative discount lines</text>
+  <text x="790" y="181" text-anchor="middle" class="small">SUBTOTAL + ROUNDING</text>
+  <text x="790" y="208" text-anchor="middle" class="small">final payment</text>
+
+  <rect x="955" y="85" width="200" height="140" class="box" fill="#fef3c7" stroke="#d97706"/>
+  <text x="1055" y="125" text-anchor="middle" class="body">Auditor B</text>
+  <text x="1055" y="154" text-anchor="middle" class="small">positive item total</text>
+  <text x="1055" y="181" text-anchor="middle" class="small">discount total</text>
+  <text x="1055" y="208" text-anchor="middle" class="small">cross-check</text>
+
+  <rect x="660" y="315" width="330" height="105" class="box" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="825" y="351" text-anchor="middle" class="body">Do the two auditors agree?</text>
+  <text x="825" y="381" text-anchor="middle" class="small">compare predicted paid and without-discount amounts</text>
+
+  <rect x="225" y="460" width="350" height="120" class="box" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="400" y="498" text-anchor="middle" class="body">Only on disagreement: Auditor C</text>
+  <text x="400" y="528" text-anchor="middle" class="small">full signed monetary ledger</text>
+  <text x="400" y="555" text-anchor="middle" class="small">third vote / outlier guard</text>
+
+  <rect x="700" y="460" width="400" height="120" class="box" fill="#cffafe" stroke="#0891b2"/>
+  <text x="900" y="498" text-anchor="middle" class="body">Deterministic Python aggregation</text>
+  <text x="900" y="528" text-anchor="middle" class="small">Decimal cents, receipt-level consensus</text>
+  <text x="900" y="555" text-anchor="middle" class="small">sum paid and sum without discounts</text>
+
+  <rect x="470" y="625" width="260" height="50" class="box" fill="#f1f5f9" stroke="#334155"/>
+  <text x="600" y="656" text-anchor="middle" class="body">Two exact JSON/CSV responses</text>
+
+  <path d="M290 155 H350" class="edge"/>
+  <path d="M600 155 H670" class="edge"/>
+  <path d="M900 155 H945" class="edge"/>
+  <path d="M790 225 V305 H825" class="edge"/>
+  <path d="M1055 225 V305 H990" class="edge"/>
+  <path d="M760 420 V450 H575" class="edge"/>
+  <text x="655" y="445" class="label">no</text>
+  <path d="M900 420 V450" class="edge"/>
+  <text x="910" y="445" class="label">yes</text>
+  <path d="M575 520 H690" class="edge"/>
+  <path d="M900 580 V615" class="edge"/>
+
+  <text x="600" y="275" text-anchor="middle" class="small">Both auditors use deepseek-v4-flash-vision-exp; prompts are independent to reduce correlated OCR errors.</text>
+</svg>
